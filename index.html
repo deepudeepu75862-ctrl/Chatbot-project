@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multilingual Chatbot</title>
+</head>
+<body>
+
+<h2>Chatbot</h2>
+
+<input type="text" id="userInput" placeholder="Type message">
+<button onclick="sendMessage()">Send</button>
+
+<p id="response"></p>
+
+<script>
+function sendMessage() {
+    let msg = document.getElementById("userInput").value;
+
+    fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: msg})
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("response").innerText = data.reply;
+    });
+}
+</script>
+
+</body>
+</html>

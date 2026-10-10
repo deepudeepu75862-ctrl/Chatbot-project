@@ -1,0 +1,5 @@
+{
+  "greeting": ["hello", "hi", "hey"],
+  "fees": ["fee", "cost", "price"],
+  "courses": ["course", "program"]
+}
